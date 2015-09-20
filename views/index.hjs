@@ -8,6 +8,7 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
     <button id="send">Send</button>
+    <ul id="receive"></ul>
   </body>
 
   <script src="/socket.io/socket.io.js"></script>
