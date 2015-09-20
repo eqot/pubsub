@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('pubsub:server');
 var http = require('http');
+var pubsub = require('../pubsub');
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +21,12 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Create Socket.IO server.
+ */
+
+pubsub.create(server);
 
 /**
  * Listen on provided port, on all network interfaces.
