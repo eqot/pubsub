@@ -1,21 +1,16 @@
 'use strict';
 
-var socket = io();
-
-socket.emit('subscribe', 'foo');
+var pubsub = new Pubsub('chat');
 
 var sendButton = document.querySelector('#send');
 sendButton.addEventListener('click', function () {
-  socket.emit('publish', {
-    id: 'foo',
-    text: 'test'
-  });
+  pubsub.publish('hello');
 });
 
 var receiveList = document.querySelector('#receive');
-socket.on('message', function (msg) {
+pubsub.subscribe(function (message) {
   var li = document.createElement('li');
-  li.innerHTML = msg;
+  li.innerHTML = message;
 
   receiveList.appendChild(li);
 });
