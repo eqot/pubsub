@@ -9,7 +9,7 @@
 
   Pubsub.prototype.publish = function (message) {
     this.socket.emit('publish', {
-      id: this.channel,
+      channel: this.channel,
       text: message
     });
   };

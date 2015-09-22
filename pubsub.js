@@ -15,12 +15,12 @@ var pubsub = function () {
         console.log('user disconnected');
       });
 
-      socket.on('subscribe', function (id) {
-        socket.join(id);
+      socket.on('subscribe', function (channel) {
+        socket.join(channel);
       });
 
       socket.on('publish', function (message) {
-        io.to(message.id).emit('send', message.text);
+        io.to(message.channel).emit('send', message.text);
       });
     });
   };
