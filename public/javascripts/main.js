@@ -1,6 +1,6 @@
 'use strict';
 
-var pubsub = new Pubsub('chat');
+var pubsub = new Pubsub('bipresent');
 
 var sendButton = document.querySelector('#send');
 sendButton.addEventListener('click', function () {
