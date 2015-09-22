@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  function Pubsub (channel) {
+  function Pubsub (channel, url) {
     this.channel = channel;
 
-    this.socket = io();
+    this.socket = io(url);
   };
 
   Pubsub.prototype.publish = function (message) {
