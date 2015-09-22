@@ -4,11 +4,26 @@
   function Pubsub (channel, url) {
     this.message = {
       channel: channel,
-      id: Pubsub.generateId(),
+      id: Pubsub.getId(),
       text: null
     };
 
     this.socket = io(url);
+  };
+
+  Pubsub.getId = function () {
+    var id = null;
+    if (localStorage && localStorage.id) {
+      id = localStorage.id;
+    } else {
+      id = Pubsub.generateId();
+
+      if (localStorage) {
+        localStorage.id = id;
+      }
+    }
+
+    return id;
   };
 
   Pubsub.generateId = function () {
