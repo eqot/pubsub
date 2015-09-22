@@ -20,7 +20,7 @@ var pubsub = function () {
       });
 
       socket.on('publish', function (message) {
-        io.to(message.channel).emit('send', message.text);
+        io.to(message.channel).emit('send', message);
       });
     });
   };

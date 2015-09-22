@@ -10,7 +10,7 @@ sendButton.addEventListener('click', function () {
 var receiveList = document.querySelector('#receive');
 pubsub.subscribe(function (message) {
   var li = document.createElement('li');
-  li.innerHTML = message;
+  li.innerHTML = message.text;
 
   receiveList.appendChild(li);
 });
