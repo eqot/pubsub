@@ -11,6 +11,17 @@
     this.socket = io(url);
   };
 
+  Pubsub.EMOJI_MAP = {
+    thumbsUp: 'fa-thumbs-o-up',
+    smile: 'fa-smile-o',
+    question: 'fa-question',
+    thumbsDown: 'fa-thumbs-o-down'
+  };
+
+  Pubsub.getEmojiId = function (message) {
+    return Pubsub.EMOJI_MAP[message];
+  };
+
   Pubsub.getId = function () {
     var id = null;
     if (localStorage && localStorage.id) {
