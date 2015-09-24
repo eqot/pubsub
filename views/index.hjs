@@ -11,10 +11,39 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-    <button id="send">Send</button>
-    <ul id="receive"></ul>
+    <div class="container">
+      <div class="row receive-message">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <ul class="list-group" id="receiveMessage">
+            <li class="list-group-item">&nbsp;</li>
+            <li class="list-group-item">&nbsp;</li>
+            <li class="list-group-item">&nbsp;</li>
+            <li class="list-group-item">&nbsp;</li>
+            <li class="list-group-item">&nbsp;</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row send-message">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="input-group">
+            <input id="sendMessage" type="text" class="form-control" aria-label="Text input with dropdown button" autofocus>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Action
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>

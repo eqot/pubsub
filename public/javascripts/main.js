@@ -2,15 +2,34 @@
 
 var pubsub = new Pubsub('bipresent');
 
-var sendButton = document.querySelector('#send');
-sendButton.addEventListener('click', function () {
-  pubsub.publish('hello');
+var sendMessage = $('#sendMessage');
+var receiveMessage = $('#receiveMessage');
+
+sendMessage.on('keypress', function (e) {
+  if (e.keyCode === 13) {
+    var message = sendMessage.val();
+    if (message.length === 0) {
+      return false;
+    }
+
+    pubsub.publish(message);
+
+    sendMessage.val(null);
+
+    return false;
+  }
+
+  return true;
 });
 
-var receiveList = document.querySelector('#receive');
 pubsub.subscribe(function (message) {
-  var li = document.createElement('li');
-  li.innerHTML = message.text;
+  var item = $('<li>')
+    .addClass('list-group-item')
+    .text(message.text);
 
-  receiveList.appendChild(li);
+  receiveMessage.append(item);
+
+  if (receiveMessage.children('li').length >= 5) {
+    receiveMessage.children('li').first().remove();
+  }
 });
