@@ -30,8 +30,8 @@
             <input id="sendMessage" type="text" class="form-control" aria-label="Text input with dropdown button" autofocus>
             <div class="input-group-btn" id="emojiButtons">
               <button class="btn btn-secondary" type="button" id="thumbsUp"><i class="fa fa-thumbs-o-up"></i></button>
-              <button class="btn btn-secondary" type="button" id="smile"><i class="fa fa-smile-o"></i></button>
               <button class="btn btn-secondary" type="button" id="question"><i class="fa fa-question"></i></button>
+              <button class="btn btn-secondary" type="button" id="smile"><i class="fa fa-smile-o"></i></button>
               <button class="btn btn-secondary" type="button" id="thumbsDown"><i class="fa fa-thumbs-o-down"></i></button>
             </div>
           </div>
