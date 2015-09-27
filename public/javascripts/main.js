@@ -52,7 +52,7 @@ function addMessage (message) {
     item.removeClass('list-highlight');
   }, 50);
 
-  if (receiveMessage.children('li').length >= 5) {
+  if (receiveMessage.children('li').length >= 4) {
     receiveMessage.children('li').first().remove();
   }
 }
