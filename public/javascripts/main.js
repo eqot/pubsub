@@ -37,7 +37,7 @@ emojiButtons.on('click', function () {
 
 function addMessage (message) {
   var item = $('<li>')
-    .addClass('list-group-item');
+    .addClass('list-group-item list-highlight');
 
   var emojiId = Pubsub.getEmojiId(message);
   if (emojiId) {
@@ -47,6 +47,10 @@ function addMessage (message) {
   }
 
   receiveMessage.append(item);
+
+  setTimeout(function () {
+    item.removeClass('list-highlight');
+  }, 50);
 
   if (receiveMessage.children('li').length >= 5) {
     receiveMessage.children('li').first().remove();

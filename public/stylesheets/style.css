@@ -1,1 +1,1 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}.send-message{margin-top:1em}
+body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}.receive-message li{height:2.5rem;padding:0.5rem 1.25rem;transition:background-color 300ms}.receive-message li.list-highlight{background-color:#b0fafa}.send-message{margin-top:1em}
