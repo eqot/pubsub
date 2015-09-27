@@ -17,6 +17,8 @@ sendMessage.on('keypress', function (e) {
 
     sendMessage.val(null);
 
+    addMessage(message);
+
     return false;
   }
 
@@ -28,18 +30,20 @@ emojiButtons.on('click', function () {
 
   pubsub.publish(emojiId);
 
+  addMessage(emojiId);
+
   return false;
 });
 
-pubsub.subscribe(function (message) {
+function addMessage (message) {
   var item = $('<li>')
     .addClass('list-group-item');
 
-  var emojiId = Pubsub.getEmojiId(message.text);
+  var emojiId = Pubsub.getEmojiId(message);
   if (emojiId) {
     item.append($('<i>').addClass('fa ' + emojiId));
   } else {
-    item.text(message.text);
+    item.text(message);
   }
 
   receiveMessage.append(item);
@@ -47,4 +51,4 @@ pubsub.subscribe(function (message) {
   if (receiveMessage.children('li').length >= 5) {
     receiveMessage.children('li').first().remove();
   }
-});
+}
