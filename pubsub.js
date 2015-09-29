@@ -1,33 +1,40 @@
 'use strict';
 
-var url = require('url');
+var express = require('express');
+var router = express.Router();
 
-var pubsub = function () {
-  var io = null;
+var io = null;
 
-  var create = function (server) {
-    io = require('socket.io')(server, {transports: ['polling']});
+router.create = function (server) {
+  io = require('socket.io')(server, {transports: ['polling']});
 
-    io.on('connection', function (socket) {
-      console.log('a user connected');
+  io.on('connection', function (socket) {
+    console.log('a user connected');
 
-      socket.on('disconnect', function () {
-        console.log('user disconnected');
-      });
-
-      socket.on('subscribe', function (channel) {
-        socket.join(channel);
-      });
-
-      socket.on('publish', function (message) {
-        io.to(message.channel).emit('send', message);
-      });
+    socket.on('disconnect', function () {
+      console.log('user disconnected');
     });
+
+    socket.on('subscribe', function (channel) {
+      socket.join(channel);
+    });
+
+    socket.on('publish', function (message) {
+      io.to(message.channel).emit('send', message);
+    });
+  });
+};
+
+router.get('/:channel/:message', function(req, res, next) {
+  var message = {
+    channel: req.params.channel,
+    id: 0,
+    text: req.params.message
   };
 
-  return {
-    create: create
-  }
-}();
+  io.to(message.channel).emit('send', message);
 
-module.exports = pubsub;
+  res.end();
+});
+
+module.exports = router;
