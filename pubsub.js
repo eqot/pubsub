@@ -29,7 +29,7 @@ router.get('/:channel/:message', function(req, res, next) {
   var message = {
     channel: req.params.channel,
     id: 0,
-    text: req.params.message
+    text: req.params.message.toString()
   };
 
   io.to(message.channel).emit('send', message);
