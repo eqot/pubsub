@@ -28,8 +28,8 @@ router.create = function (server) {
 router.get('/:channel/:message', function(req, res, next) {
   var message = {
     channel: req.params.channel,
-    id: 0,
-    text: req.params.message.toString()
+    id: 'anonymous',
+    text: req.params.message
   };
 
   io.to(message.channel).emit('send', message);
