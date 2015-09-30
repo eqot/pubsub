@@ -18,6 +18,13 @@
     thumbsDown: 'fa-thumbs-o-down'
   };
 
+  Pubsub.KEY_EMOJI_MAP = {
+    38: 'thumbsUp',
+    37: 'question',
+    39: 'smile',
+    40: 'thumbsDown'
+  };
+
   Pubsub.getEmojiId = function (message) {
     return Pubsub.EMOJI_MAP[message];
   };
